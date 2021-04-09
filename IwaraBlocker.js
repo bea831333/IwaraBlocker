@@ -7,11 +7,17 @@
             
         var text = readText(filepath).split(/[\r\n]+/);
         for (var i = 0, maxi = allElements.length; i < maxi; i++) {
-            for (var j = 0, maxj = text.length; j < maxj; j++) {
-                var re = new RegExp(text[j].trim(), "ig");
+            for (var j = 0, maxj = text.length; j < maxj; j++) { 
+                var re = new RegExp("username\">".concat(text[j].trim(), "</a>"), "ig");
                 var matches = re.exec(allElements[i].innerHTML);
                 if (matches) {
                     console.log("Blocking " + text[j].trim());
+                    allElements[i].style.display = "none";
+                } else if (allElements[i].innerHTML.includes("虫")) {
+                    console.log("Generic '虫' block");
+                    allElements[i].style.display = "none";
+                } else if (allElements[i].innerHTML.toLowerCase().includes("insect")) {
+                    console.log("Generic 'insect' block");
                     allElements[i].style.display = "none";
                 }
             }

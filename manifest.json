@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "IwaraBlocker",
-  "version": "0.0.3",
+  "version": "0.0.56",
   "description": "Blocks videos and images submitted by Iwara uploaders",
 
   "icons": {
@@ -20,13 +20,13 @@
 
   "content_scripts": [
     {
-      "matches": ["*://ecchi.iwara.tv/*", "*://iwara.tv/*"],
+      "matches": ["*://ecchi.iwara.tv/*", "*://www.iwara.tv/*"],
       "js": ["IwaraBlocker.js"]
     }
   ],
   
   "permissions": [
     "*://ecchi.iwara.tv/*",
-    "*://iwara.tv/*"
+    "*://*.iwara.tv/*"
   ]
 }
